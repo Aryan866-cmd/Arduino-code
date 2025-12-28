@@ -1,2 +1,18 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+int button = 2;
+int led = 4;
+int status = false;
+
+void setup(){
+  pinMode(button, INPUT_PULLUP);
+  pinMode(led, OUTPUT);
+}
+
+void loop(){
+  if (digitalRead(button) == true){
+    status = !status;
+    digitalWrite(led, status);  // 1st- digitalWrite(led) == status; ... 2nd- digitalWrite(led, status) == true;
+  }
+  while (digitalRead(button) == true); // 1st- no {} on while loop ... 2nd-  while digitalRead(button) == true;
+    delay(50);
+  
+}
