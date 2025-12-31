@@ -1,0 +1,59 @@
+#define blue 3
+#define green 5
+#define red 11
+
+int redvalue;
+int bluevalue;
+int greenvalue;
+void setup() {
+  // put your setup code here, to run once:
+pinMode(red, OUTPUT);
+pinMode(green, OUTPUT);
+pinMode(blue, OUTPUT);
+
+digitalWrite(red, HIGH);
+digitalWrite(green, LOW);
+digitalWrite(blue, LOW);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+redvalue = 255;
+greenvalue = 0;
+bluevalue = 0;
+
+for (int i = 0; i < 255; i += 1)
+{
+  redvalue -= 1;
+  greenvalue += 1;
+  analogWrite(red, redvalue);
+  analogWrite(green, greenvalue);
+  delay(10);
+  }
+
+redvalue = 0;
+greenvalue = 255;
+bluevalue = 0;
+
+for (int i = 0; i < 255; i += 1)
+{
+  greenvalue -= 1;
+  bluevalue += 1;
+  analogWrite(green, greenvalue);
+  analogWrite(blue, bluevalue);
+  delay(10);
+}
+
+redvalue = 0;
+greenvalue = 0;
+bluevalue = 255;
+
+for (int i = 0; i < 255; i += 1)
+{
+  bluevalue -= 1;
+  redvalue += 1;
+  analogWrite(blue, bluevalue);
+  analogWrite(red, redvalue);
+  delay(10);
+}
+}
